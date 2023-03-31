@@ -1,6 +1,6 @@
 Name:		texlive-fcltxdoc
 Version:	24500
-Release:	1
+Release:	2
 Summary:	Macros for use in the author's documentation
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fcltxdoc
