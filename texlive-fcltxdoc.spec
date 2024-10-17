@@ -3,7 +3,7 @@ Version:	24500
 Release:	2
 Summary:	Macros for use in the author's documentation
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fcltxdoc
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fcltxdoc
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.doc.r%{version}.tar.xz
