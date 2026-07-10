@@ -1,47 +1,25 @@
-Name:		texlive-fcltxdoc
-Version:	24500
-Release:	2
-Summary:	Macros for use in the author's documentation
+%global tl_name fcltxdoc
+%global tl_revision 24500
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
+Summary:	Macros for use in the authors documentation
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fcltxdoc
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.source.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fcltxdoc.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package is not advertised for public use, but is necessary
-for the support of others of the author's packages (which are
-compiled under the ltxdoc class).
+The package is not advertised for public use, but is necessary for the
+support of others of the author's packages (which are compiled under the
+ltxdoc class).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/fcltxdoc/fcltxdoc.sty
-%doc %{_texmfdistdir}/doc/latex/fcltxdoc/fcltxdoc.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/fcltxdoc/fcltxdoc.drv
-%doc %{_texmfdistdir}/source/latex/fcltxdoc/fcltxdoc.dtx
-%doc %{_texmfdistdir}/source/latex/fcltxdoc/fcltxdoc.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
